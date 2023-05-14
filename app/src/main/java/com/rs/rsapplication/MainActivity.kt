@@ -1,24 +1,29 @@
 package com.rs.rsapplication
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.view.View.OnClickListener
 import android.widget.FrameLayout
 import android.widget.LinearLayout
-import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.rs.rsapplication.UI.AttendanceModuleFragment
 import com.rs.rsapplication.UI.RegistrationModuleFragment
 
 class MainActivity : AppCompatActivity(),View.OnClickListener {
     private var activeFragment: Fragment? = null
+    lateinit var mToolbar:Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.homescreen)
+        mToolbar =  findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+        supportActionBar?.setDisplayHomeAsUpEnabled(true);
+        supportActionBar?.setDisplayShowHomeEnabled(true);
+        supportActionBar?.setTitle("Tutorial ManagMent");
         val attendance:CardView = findViewById(R.id.attendance)
         val reg:CardView = findViewById(R.id.reg)
         val exam:CardView = findViewById(R.id.exam)
@@ -26,6 +31,7 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
         attendance.setOnClickListener(this)
         reg.setOnClickListener(this)
         exam.setOnClickListener(this)
+
     }
 
     private fun showAttendanceModule() {
@@ -86,7 +92,17 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
             R.id.reg->{
                 showRegistrationModule()
             }
+            R.id.toolbar->{
+                onBackPressed()
+            }
 
+        }
+    }
+    override fun onBackPressed() {
+        if (supportFragmentManager.getBackStackEntryCount() > 0) {
+            supportFragmentManager.popBackStack()
+        } else {
+            super.onBackPressed()
         }
     }
 }

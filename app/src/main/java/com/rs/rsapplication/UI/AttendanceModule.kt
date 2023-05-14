@@ -8,6 +8,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.LinearLayout
 import android.widget.Spinner
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.rs.rsapplication.MainActivity
@@ -16,6 +17,9 @@ import com.rs.rsapplication.UI.adapter.AttendanceDeatilsAdapter
 import mtj.example.vmapplication.Base.BaseFragment
 
 class AttendanceModuleFragment() : BaseFragment() {
+
+    lateinit var mToolbar: Toolbar
+
     companion object{
         const val TAG = "EmpDetailsFragment"
 
@@ -30,7 +34,7 @@ class AttendanceModuleFragment() : BaseFragment() {
 
     override fun provideLayoutId(): Int = R.layout.attendance_fragment_layout
     override fun setupView(view: View) {
-        Log.d(TAG,"ViewCreated")
+
     }
 
     override fun setupObservers() {
@@ -55,6 +59,7 @@ class AttendanceModuleFragment() : BaseFragment() {
         val languages = resources.getStringArray(R.array.class_name)
         val spinner = view?.findViewById<Spinner>(R.id.spinner) as Spinner
         val studentrecycle = view?.findViewById<RecyclerView>(R.id.studentRecycle)
+
         if (studentrecycle != null) {
             studentrecycle.visibility= View.GONE
         }
