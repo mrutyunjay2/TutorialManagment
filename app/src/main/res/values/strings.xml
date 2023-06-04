@@ -19,5 +19,8 @@
         <string name="id">ID :</string>
         <string name="name">Name :</string>
         <string name="MobNo">MobNo :</string>
+    <string name="stateboard">StateBoard</string>
+    <string name="icse">ICSE</string>
+    <string name="cbse">CBSE</string>
 
 </resources>

@@ -89,6 +89,7 @@
             android:layout_marginEnd="10dp"
             android:entries="@array/class_name" />
         <RadioGroup
+            android:id="@+id/genderRadioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -114,6 +115,7 @@
         </RadioGroup>
 
         <RadioGroup
+            android:id="@+id/boardRadioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -128,18 +130,18 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="CBSE">
+                android:text="@string/cbse">
             </RadioButton>
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ICSE">
+                android:text="@string/icse">
             </RadioButton>
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="State board">
+                android:text="@string/stateboard">
             </RadioButton>
 
         </RadioGroup>

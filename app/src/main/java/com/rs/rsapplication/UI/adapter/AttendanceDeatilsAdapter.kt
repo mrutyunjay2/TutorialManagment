@@ -1,15 +1,14 @@
 package com.rs.rsapplication.UI.adapter
 
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.rs.rsapplication.R
-import com.rs.rsapplication.UI.PeopleResponse
+import com.rs.rsapplication.Room.RegistrationData
 
-class AttendanceDeatilsAdapter (private var dataList: List<PeopleResponse>): RecyclerView.Adapter<AttendanceDeatilsAdapter.ViewHolder>() {
+class AttendanceDeatilsAdapter (private var dataList: List<RegistrationData>): RecyclerView.Adapter<AttendanceDeatilsAdapter.ViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -22,11 +21,10 @@ class AttendanceDeatilsAdapter (private var dataList: List<PeopleResponse>): Rec
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val ItemsViewModel = dataList[position]
-        holder.slNo.text = "Sl No:" +ItemsViewModel.id
         holder.name.text = "Name :" +ItemsViewModel.firstName + ItemsViewModel.lastName
-        holder.mob.text =  "Mob.No :" +ItemsViewModel.phone
+        holder.mob.text =  "Mob.No :" +ItemsViewModel.mobNo
         holder.email.text = "Email :" + ItemsViewModel.email
-        val img_url = ItemsViewModel.avatar
+
     }
 
     override fun getItemCount(): Int = dataList.size

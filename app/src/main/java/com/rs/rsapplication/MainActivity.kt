@@ -100,9 +100,9 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
     }
     override fun onBackPressed() {
         if (supportFragmentManager.getBackStackEntryCount() > 0) {
-            supportFragmentManager.popBackStack()
-        } else {
-            super.onBackPressed()
+            getFragmentManager().popBackStack();
+            return;
         }
+        super.onBackPressed()
     }
 }
